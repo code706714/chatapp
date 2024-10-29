@@ -1,85 +1,114 @@
 import 'package:flutter/material.dart';
+import 'package:medrator_task/screens/login.dart';
 import 'package:medrator_task/screens/sing_in.dart';
 import 'sing_in.dart';
 
-class Forgetpassward extends StatelessWidget {
-  const Forgetpassward({super.key});
+class ForgetPasswardScreen extends StatefulWidget {
+  const ForgetPasswardScreen({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<ForgetPasswardScreen> createState() => _ForgetPasswardScreenState();
+}
+
+class _ForgetPasswardScreenState extends State<ForgetPasswardScreen> {
+  bool _passwordVisibility = false;
+  bool _isFocused = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.blueGrey, // اللون الخلفي
-        body: Center(
-            child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            // شعار التطبيق
-
-            Text(
-              'why forget password😡😡',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 30,
+        body: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: ListView(children: [
+              SizedBox(
+                height: 37,
               ),
-            ),
-            SizedBox(
-              height: 40,
-            ),
-            // الصندوق الأبيض
-            Container(
-              padding: EdgeInsets.all(20),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
+              Image.asset(
+                'assets/logo.png',
+                height: 200,
+                width: 200,
               ),
-              child: Column(children: [
-                TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.password),
-                    labelText: 'your password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+              SizedBox(
+                height: 26,
+              ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _isFocused = !_isFocused;
+                  });
+                },
+                child: AnimatedContainer(
+                  duration: Duration(milliseconds: 300),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(_isFocused ? 0 : 30),
+                    border: Border.all(color: Colors.white),
                   ),
                 ),
-                SizedBox(height: 20),
-                // حقل البريد الإلكتروني
+              ),
                 TextField(
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.email),
-                    labelText: 'New Password',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
+              obscureText: !_passwordVisibility,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _passwordVisibility ? Icons.visibility : Icons.visibility_off,
                   ),
+                  onPressed: () {
+                    setState(() {
+                      _passwordVisibility = !_passwordVisibility;
+                    });
+                  },
                 ),
-                SizedBox(
-                  height: 25,
+                labelText: 'New Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
                 ),
-                 ElevatedButton(
-                      onPressed: () {
-                      Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => login()));
-                      },
-                      child: Text(
-                        'Changed',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blueGrey,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 50, vertical: 15),
-                      )),
-                
-              ]),
+              ),
             ),
-          ]),
-        )));
+            SizedBox(height: 27,),
+                  TextField(
+              obscureText: !_passwordVisibility,
+              decoration: InputDecoration(
+                prefixIcon: Icon(Icons.lock),
+                suffixIcon: IconButton(
+                  icon: Icon(
+                    _passwordVisibility ? Icons.visibility : Icons.visibility_off,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      _passwordVisibility = !_passwordVisibility;
+                    });
+                  },
+                ),
+                labelText: 'Try New Password',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            SizedBox(height: 29,),
+              ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()),
+                );
+              },
+              child: Text(
+          'Continue',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  ),
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color(0xff4CB050),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+              ),
+            ),
+            ])));
   }
 }

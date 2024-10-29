@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:medrator_task/screens/login.dart';
 
 import 'sing_in.dart';
 
@@ -22,10 +23,10 @@ class _Splash extends State<Splash> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => login()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
       );
     });
   }
@@ -43,7 +44,7 @@ class _Splash extends State<Splash> {
                 height: 20,
                 decoration: BoxDecoration(
                 
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.7),
                 ),
               ),
@@ -55,7 +56,7 @@ class _Splash extends State<Splash> {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.4),
                 ),
               ),
@@ -69,7 +70,7 @@ class _Splash extends State<Splash> {
                 width: 50,
                 height: 60,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.6),
                 ),
               ),
@@ -81,7 +82,7 @@ class _Splash extends State<Splash> {
                 width: 48,
                 height: 50,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.6),
                 ),
               ),
@@ -93,7 +94,7 @@ class _Splash extends State<Splash> {
                 width: 48,
                 height: 50,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.6),
                 ),
               ),
@@ -105,7 +106,7 @@ class _Splash extends State<Splash> {
                 width: 48,
                 height: 50,
                 decoration: BoxDecoration(
-                  shape: BoxShape.rectangle,
+                  shape: BoxShape.circle,
                   color: Colors.green.withOpacity(0.6),
                 ),
               ),
@@ -117,7 +118,7 @@ class _Splash extends State<Splash> {
             ),
           Center(
               child: Image.asset(
-                "image/logo.png",
+                "asset/logo.png",
                 height: 200,
                 width: 200,
               ),
@@ -136,7 +137,9 @@ class _Splash extends State<Splash> {
               height: 350,
             ),
             
-                Text('this is abeast chat app')
+                Text('this is abeast chat app',style: TextStyle(
+                  fontSize: 0,
+                ),)
               
           ],
         ),

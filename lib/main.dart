@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:medrator_task/screens/splash.dart';
+import 'package:medrator_task/screens/calls.dart';
+import 'package:medrator_task/screens/chats.dart';
 
-import 'package:medrator_task/screens/forgetpassward.dart';
 import 'package:medrator_task/screens/sing_in.dart';
+import 'package:medrator_task/screens/forgetpassward.dart';
+import 'package:medrator_task/screens/login.dart';
 import 'package:medrator_task/screens/splash.dart';
-import 'screens/home_page.dart';
+import 'package:medrator_task/screens/profile.dart';
 
 void main() {
   runApp(hello());
@@ -16,7 +18,8 @@ class hello extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Splash(),
+            debugShowCheckedModeBanner: false,
+      home: Login(),
     );
   }
 }
